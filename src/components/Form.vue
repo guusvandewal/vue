@@ -1,35 +1,46 @@
-
 <template>
   <div class="bd-example">
+    <h1 v-if="awesome">Vue is awesome!</h1>
+    <h1 v-else>Oh no 😢</h1>
     <form
       @submit="checkForm"
+      @click="doSomething"
       action="/post-form"
       method="post"
       novalidate="true"
+      :class="{ active: isActive }"
       id="app"
     >
+      <div class="mb-3">
+        <div v-if="Math.random() > 0.5">Now you 😂s ee me</div>
+        <div v-else>Now you don't 😀</div>
+      </div>
+
       <div v-if="errors.length">
-        <div class="form-group">
+        <div class="mb-3">
           <b>Please correct the following error(s): </b>
           <div v-for="error in errors" class="alert alert-danger">
             {{ error }}
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="name">Name</label>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
         <input
+          v-on:focusout="checkForm"
           ref="name"
           id="name"
           v-model="name"
           name="name"
           type="text"
           class="form-control"
+          :style="styleObject"
         />
       </div>
-      <div class="form-group">
-        <label for="email">Email</label>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
         <input
+          v-on:focusout="checkForm"
           id="email"
           ref="email"
           v-model="email"
@@ -38,14 +49,15 @@
           class="form-control"
         />
       </div>
-      <div class="form-group">
-        <label for="movie">Movie</label>
+      <div class="mb-3">
+        <label for="movie" class="form-label">Movie</label>
         <select
+          aria-label="Default select example"
           name="movie"
           v-model="movie"
           id="movie"
           :required="true"
-          class="form-control"
+          class="form-select"
         >
           <option v-for="movie in movies" v-bind:value="movie.val">
             {{ movie.option }}
@@ -61,26 +73,33 @@
 </template>
 
 <script>
+const l = console.log;
 export default {
-
   created() {
-    console.log('Component has been created!');
+    console.log("Component has been created!");
   },
   mounted() {
-    console.log('Component has been mounted!');
-    this.focusInput('name');
+    console.log("Component has been mounted!");
+    this.focusInput("name");
   },
 
   data: function () {
     return {
+      styleObject: {
+        color: "palevioletred",
+        fontSize: "13px",
+      },
       errors: [],
+      awesome: true,
       name: null,
       email: null,
-      movie: "0",
+      movie: "1",
       option: null,
+      isActive: true,
+      activeBorder: "red",
       movies: [
         { option: "Choose movie", val: "0" },
-        { option: "Star Wars", val: "1" },
+        { option: "Star Wars VI: Return of the Jedi", val: "1" },
         { option: "Skyfall", val: "2" },
         { option: "Stripes", val: "3" },
       ],
@@ -93,13 +112,14 @@ export default {
     };
   },
   methods: {
-
     focusInput() {
-      this.$refs.email.focus();
+      this.$refs.name.focus();
     },
-
+    doSomething: function (e) {
+      console.log("Annoying");
+    },
     checkForm: function (e) {
-
+      l(e);
       this.errors = [];
       if (!this.name) {
         this.errors.push("Name required");
@@ -133,5 +153,12 @@ export default {
 }
 .has-error {
   border: 1px solid #ff0000;
+}
+form {
+  text-align: left !important;
+}
+form label {
+  text-align: left;
+  display: block;
 }
 </style>
