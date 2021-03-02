@@ -6,14 +6,24 @@ export default {
     Form,
     CustomButton,
   },
+  data() {
+    return {
+     postFontSize: 1
+    }
+  },
+  methods: {
+    resize(e) {
+      l(e)
+    },
+  }
 };
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <Form msg="This is a bootstrapped form" />
-  <div class="move-down" :style="{ fontSize: (postFontSize += 0.2) }">
-    <CustomButton :msg="msg" @enlarge-text="postFontSize += 0.2" />
+  <div class="move-down" :style="{ fontSize: postFontSize + 'em' }">
+    <CustomButton :msg="msg" @enlarge-text="postFontSize += 0.1" />
     <CustomButton msg="You really clicked me: " />
     <CustomButton title="You sure clickrred me: " />
   </div>

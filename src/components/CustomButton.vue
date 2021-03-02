@@ -13,8 +13,6 @@ export default {
   data: function () {
     return {
       count: 0,
-      postFontSize: 1,
-
     }
   },
   props: ['title', 'msg', 'btnFontSize'],
