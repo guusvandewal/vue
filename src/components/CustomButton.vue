@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('enlargeText', 0.1)" v-on:dblclick='count--'>{{ msg }}{{title}} {{count}}</button>
+  <button @click="$emit('enlargeText', 0.1)" v-on:click='count++' v-on:dblclick='count--'>{{ msg }}{{title}} {{count}}</button>
 </template>
 
 <script>

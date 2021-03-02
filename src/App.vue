@@ -8,7 +8,8 @@ export default {
   },
   data() {
     return {
-     postFontSize: 1
+     postFontSize: 1,
+     msg: 'Click me: '
     }
   },
   methods: {
