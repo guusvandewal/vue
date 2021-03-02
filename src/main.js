@@ -1,17 +1,19 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-const l = console.log
 const app = createApp(App)
 app.config.errorHandler = (err, vm, info) => {
-  l(info)
+  l(err)
   // handle error
   // `info` is a Vue-specific error info, e.g. which lifecycle hook
   // the error was found in
 }
-
-app.component('my-component', {
-  /* ... */
+// @TODO Understand this exactly
+app.component('blog-post', {
+  props: ['title'],
+  template: `<h4>{{ title }}</h4>`
 })
+
+
   //.mount('#app')
 l(app.config)
 app.mount('#app')
