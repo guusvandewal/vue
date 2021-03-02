@@ -27,7 +27,6 @@
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input
-          v-on:focusout="checkForm"
           ref="name"
           id="name"
           v-model="name"
@@ -40,7 +39,6 @@
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input
-          v-on:focusout="checkForm"
           id="email"
           ref="email"
           v-model="email"
