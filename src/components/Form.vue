@@ -56,12 +56,24 @@
           id="movie"
           :required="true"
           class="form-select"
+
         >
           <option v-for="movie in movies" v-bind:value="movie.val">
             {{ movie.option }}
           </option>
           >
         </select>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="checkbox"
+            v-model="checked"
+          />
+          <label class="form-check-label" for="checkbox">{{
+            checked === true ? "True" : "False"
+          }}</label>
+        </div>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-success">Submit</button>
@@ -71,7 +83,6 @@
 </template>
 
 <script>
-const l = console.log;
 export default {
   created() {
     console.log("Component has been created!");
@@ -87,6 +98,7 @@ export default {
         color: "palevioletred",
         fontSize: "13px",
       },
+      checked: false,
       errors: [],
       awesome: true,
       name: null,
@@ -160,3 +172,6 @@ form label {
   display: block;
 }
 </style>
+
+
+
