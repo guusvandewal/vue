@@ -1,13 +1,29 @@
 <template>
-  <CustomInput>
-    <label for="name">Name</label>
-    <input
-      ref="name"
-      id="name"
-      v-model="name"
-      name="name"
-      type="text"
-      class="form-control"
-    />
-  </CustomInput>
+  <input v-model="value"
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {};
+  },
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
+  methods: {},
+  /*computed: {
+    value: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit("update:modelValue", value);
+      },
+    },
+  },*/
+
+};
+</script>
+
+<style scoped></style>
