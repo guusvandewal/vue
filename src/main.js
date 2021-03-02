@@ -13,7 +13,4 @@ app.component('blog-post', {
   template: `<h4>{{ title }}</h4>`
 })
 
-
-  //.mount('#app')
-l(app.config)
 app.mount('#app')

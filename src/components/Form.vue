@@ -146,7 +146,23 @@ export default {
         return true;
       }
       e.preventDefault();
+      this.$emit('submit', { email })
     },
+
+  },
+  emits: {
+    // No validation
+    click: null,
+    // Validate submit event
+    submit: ({ email }) => {
+      if (email) {
+        console.warn('Invalid submit event payload!')
+        return true
+      } else {
+        console.warn('Invalid submit event payload!')
+        return false
+      }
+    }
   },
 };
 </script>

@@ -28,10 +28,11 @@ export default {
   <img alt="Vue logo" src="./assets/logo.png" />
   <Form msg="This is a bootstrapped form" />
   <div class="move-down" :style="{ fontSize: postFontSize + 'em' }">
-    <Alert>Something bad happened<br /><img alt="Vue logo" src="/src/assets/logo.png"></Alert>
+    <Alert>Something bad happened<br /><img alt="Vue logo" src="/src/assets/logo.png">  </Alert>
+    <!-- :msg is shorthand for v-bind:msg -->
     <CustomButton :msg="msg" @enlarge-text="postFontSize += $event" />
-    <CustomButton msg="You really clicked me: " />
-    <CustomButton title="You sure clickrred me: " />
+    <CustomButton title="Click me again: " />
+    <CustomButton title="You sure clickrred me: " @enlarge-text="postFontSize += $event"/>
 <!--    <custom-input v-model="searchText" @update:model-value="searchText = $event"></custom-input>
     <custom-input v-model="searchText" :model-value="searchText" @update:model-value="resize"></custom-input>-->
 

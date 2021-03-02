@@ -1,5 +1,11 @@
 <template>
-  <button @click="$emit('enlargeText', 0.1)" v-on:click='count++' v-on:dblclick='count--'>{{ msg }}{{title}} {{count}}</button>
+  <button
+    @click="$emit('enlargeText', 0.1)"
+    v-on:click="count++"
+    v-on:dblclick="count--"
+  >
+    {{ msg }}{{ title }} {{ count }}
+  </button>
 </template>
 
 <script>
@@ -13,24 +19,26 @@ export default {
   data: function () {
     return {
       count: 0,
-    }
+    };
   },
-  props: ['title', 'msg', 'btnFontSize'],
-  emits: ['enlargeText'],
+  props: {
+    title: String,
+    msg: String,
+    btnFontSize: Number,
+    callback: Function,
+  },
+  emits: ["enlargeText"],
   methods: {
     countUp() {
-       return 1
+      return 1;
     },
   },
 };
 </script>
 
 <style scoped>
-  button {
-    margin-left: 2px;
-    border:1px solid #CCC;
-  }
+button {
+  margin-left: 2px;
+  border: 1px solid #ccc;
+}
 </style>
-
-
-
