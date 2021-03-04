@@ -1,7 +1,7 @@
 <template>
   <div class="bd-example">
 
-    <h1 v-if="awesome">Vue is awesome!</h1>
+    <h1 v-if="awesome">{{ msg }}</h1>
     <h1 v-else>Oh no 😢</h1>
     <form
       @submit="checkForm"
@@ -84,7 +84,11 @@
 </template>
 
 <script>
+import CustomButton from "./CustomButton.vue";
 export default {
+  components: {
+    CustomButton,
+  },
   created() {
     console.log("Component has been created!");
   },
@@ -149,6 +153,9 @@ export default {
       this.$emit('submit', { email })
     },
 
+  },
+  props: {
+    msg: String,
   },
   emits: {
     // No validation

@@ -3,15 +3,16 @@
     @click="$emit('enlargeText', 0.1)"
     v-on:click="count++"
     v-on:dblclick="count--"
+    class="btn btn-outline-danger"
   >
-    {{ msg }}{{ title }} {{ count }}
+    {{ msg }}{{ title }} {{ count }} {{ user }}
   </button>
 </template>
 
 <script>
 export default {
   created() {
-    console.log("Component has been created!");
+    console.log(`Injected property: ${this.user}`) // > Injected property: 5
   },
   mounted() {
     console.log("Component has been mounted!");
@@ -33,12 +34,13 @@ export default {
       return 1;
     },
   },
+  inject: ['user'],
 };
 </script>
 
 <style scoped>
 button {
   margin-left: 2px;
-  border: 1px solid #ccc;
+  font-size: inherit;
 }
 </style>
