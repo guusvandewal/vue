@@ -50,6 +50,7 @@ export default {
       @enlarge-text="postFontSize += $event"
     />
 
+
     <!--    <custom-input v-model="searchText" @update:model-value="searchText = $event"></custom-input>
     <custom-input v-model="searchText" :model-value="searchText" @update:model-value="resize"></custom-input>-->
   </div>
