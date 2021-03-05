@@ -12,8 +12,10 @@
       :class="{ active: isActive }"
       id="app"
     >
+     {{$translate('Bye')}}
+
       <div class="mb-3">
-        <div v-if="Math.random() > 0.5">Now you 😂s ee me</div>
+        <div v-if="Math.random() > 0.5">Now you 😂s ee</div>
         <div v-else>Now you don't 😀</div>
       </div>
 
@@ -99,7 +101,9 @@ export default {
     console.log("Component has been mounted!");
     //this.focusInput("name");
   },
-
+  options: {
+    i18n:true
+  },
   data: function () {
     return {
       styleObject: {
@@ -168,6 +172,7 @@ export default {
   props: {
     msg: String,
   },
+
   emits: {
     // No validation
     click: null,
