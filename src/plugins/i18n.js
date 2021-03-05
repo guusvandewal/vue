@@ -5,7 +5,7 @@ export default {
     // Create global function $translate
     app.config.globalProperties.$translate = (key) => {
       return key.split(".").reduce((o, i) => {
-        if (o) return o.greetings[i];
+        if (o) return o[i];
       }, options);
     };
 

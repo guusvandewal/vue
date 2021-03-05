@@ -12,7 +12,7 @@
       :class="{ active: isActive }"
       id="app"
     >
-     {{$translate('Bye')}}
+     {{$translate('greetings.hi')}}
 
       <div class="mb-3">
         <div v-if="Math.random() > 0.5">Now you 😂s ee</div>
