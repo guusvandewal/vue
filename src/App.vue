@@ -38,12 +38,12 @@ export default {
   <Form msg="Vue is awesome" />
   <div class="move-down" :style="{ fontSize: postFontSize + 'em' }">
     <!--    <Model v-model.trim.capitalize="myText">{{myText}}</Model>-->
-    <!--    <Alert>Something bad happened<br /><img alt="Vue logo" src="/src/assets/logo.png">  </Alert>-->
+    <Alert>Something bad happened<br /><img alt="Vue logo" src="/src/assets/logo.png">  </Alert>
     <!-- :msg is shorthand for v-bind:msg -->
     <CustomButton :msg="msg" @enlarge-text="postFontSize += $event" />
 
     <CustomButton
-      title="You sure clickrred me: "
+      title="You sure clicked me: "
       @enlarge-text="postFontSize += $event"
     />
 

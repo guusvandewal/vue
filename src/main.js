@@ -12,5 +12,9 @@ app.component('blog-post', {
   props: ['title'],
   template: `<h4>{{ title }}</h4>`
 })
-
+app.directive('focus', {
+  /*mounted(el) {
+    el.focus()
+  }*/
+})
 app.mount('#app')

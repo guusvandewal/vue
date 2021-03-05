@@ -35,6 +35,7 @@
           type="text"
           class="form-control"
           :style="styleObject"
+
         />
       </div>
       <div class="mb-3">
@@ -46,6 +47,8 @@
           name="email"
           type="email"
           class="form-control"
+          v-focus
+
         />
       </div>
       <div class="mb-3">
@@ -94,7 +97,7 @@ export default {
   },
   mounted() {
     console.log("Component has been mounted!");
-    this.focusInput("name");
+    //this.focusInput("name");
   },
 
   data: function () {
@@ -125,6 +128,14 @@ export default {
       ],
       counter: 0,
     };
+  },
+  directives: {
+    focus: {
+      // directive definition
+      mounted(el) {
+        el.focus()
+      }
+    }
   },
   methods: {
     focusInput() {
