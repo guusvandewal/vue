@@ -4,6 +4,7 @@ import CustomButton from "./components/CustomButton.vue";
 import CustomInput from "./components/CustomInput.vue";
 import Alert from "./components/Alert.vue";
 import Model from "./components/Model.vue";
+import Fixed from "./components/Fixed.vue";
 export default {
   components: {
     Alert,
@@ -11,6 +12,7 @@ export default {
     CustomButton,
     CustomInput,
     Model,
+    Fixed,
   },
   data() {
     return {
@@ -37,8 +39,9 @@ export default {
   <img alt="Vue logo" src="./assets/logo.png" />
   <Form msg="Vue is awesome" />
   <div class="move-down" :style="{ fontSize: postFontSize + 'em' }">
+    <!--  <Fixed />-->
     <!--    <Model v-model.trim.capitalize="myText">{{myText}}</Model>-->
-    <Alert>Something bad happened<br /><img alt="Vue logo" src="/src/assets/logo.png">  </Alert>
+    <!--<Alert>Something bad happened<br /><img alt="Vue logo" src="/src/assets/logo.png">  </Alert>-->
     <!-- :msg is shorthand for v-bind:msg -->
     <CustomButton :msg="msg" @enlarge-text="postFontSize += $event" />
 
