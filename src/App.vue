@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-  <Messages></Messages>
+<!--  <Messages></Messages>-->
   <img alt="Vue logo" src="./assets/logo.png" />
   <Form msg="Vue is awesome" />
   <div class="move-down" :style="{ fontSize: postFontSize + 'em' }">
