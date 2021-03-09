@@ -5,6 +5,7 @@ import CustomInput from "./components/CustomInput.vue";
 import Alert from "./components/Alert.vue";
 import Model from "./components/Model.vue";
 import Fixed from "./components/Fixed.vue";
+import Messages from "./components/Messages.vue";
 export default {
   components: {
     Alert,
@@ -13,6 +14,7 @@ export default {
     CustomInput,
     Model,
     Fixed,
+    Messages
   },
   data() {
     return {
@@ -36,6 +38,7 @@ export default {
 </script>
 
 <template>
+<!--  <Messages></Messages>-->
   <img alt="Vue logo" src="./assets/logo.png" />
   <Form msg="Vue is awesome" />
   <div class="move-down" :style="{ fontSize: postFontSize + 'em' }">
