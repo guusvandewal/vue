@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
+
   props: {
     modelValue: String,
     modelModifiers: {
@@ -34,3 +35,8 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+/* write SCSS here */
+
+</style>
