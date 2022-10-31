@@ -1,6 +1,5 @@
 <template>
   <div class="bd-example">
-
     <h1 v-if="awesome">{{ msg }}</h1>
     <h1 v-else>Oh no 😢</h1>
     <form
@@ -12,7 +11,7 @@
       :class="{ active: isActive }"
       id="app"
     >
-     {{$translate('greetings.hi')}}
+      {{ $translate("greetings.Hi") }}
 
       <div class="mb-3">
         <div v-if="Math.random() > 0.5">Now you 😂s ee</div>
@@ -37,7 +36,6 @@
           type="text"
           class="form-control"
           :style="styleObject"
-
         />
       </div>
       <div class="mb-3">
@@ -50,7 +48,6 @@
           type="email"
           class="form-control"
           v-focus
-
         />
       </div>
       <div class="mb-3">
@@ -62,7 +59,6 @@
           id="movie"
           :required="true"
           class="form-select"
-
         >
           <option v-for="movie in movies" v-bind:value="movie.val">
             {{ movie.option }}
@@ -100,15 +96,16 @@ export default {
   mounted() {
     console.log("Component has been mounted!");
     //this.focusInput("name");
+    debugger;
   },
   options: {
-    i18n:true
+    i18n: true,
   },
   data: function () {
     return {
       styleObject: {
-        color: "palevioletred",
-        fontSize: "13px",
+        //color: "palevioletred",
+        //fontSize: "13px",
       },
       checked: false,
       errors: [],
@@ -137,9 +134,9 @@ export default {
     focus: {
       // directive definition
       mounted(el) {
-        el.focus()
-      }
-    }
+        el.focus();
+      },
+    },
   },
   methods: {
     focusInput() {
@@ -157,6 +154,7 @@ export default {
       }
       if (!this.email) {
         this.errors.push("Email required");
+        e.target[1].classList.add("has-error"); // Yuck
       }
       if (!this.movie || this.movie === "0") {
         this.errors.push("Movie required");
@@ -165,9 +163,8 @@ export default {
         return true;
       }
       e.preventDefault();
-      this.$emit('submit', { email })
+      this.$emit("submit", { email });
     },
-
   },
   props: {
     msg: String,
@@ -179,13 +176,13 @@ export default {
     // Validate submit event
     submit: ({ email }) => {
       if (email) {
-        console.warn('Invalid submit event payload!')
-        return true
+        console.warn("Invalid submit event payload!");
+        return true;
       } else {
-        console.warn('Invalid submit event payload!')
-        return false
+        console.warn("Invalid submit event payload!");
+        return false;
       }
-    }
+    },
   },
 };
 </script>
@@ -212,6 +209,3 @@ form label {
   display: block;
 }
 </style>
-
-
-
